@@ -6,7 +6,7 @@ ENV PUID=99 \
 EXPOSE 8096
 VOLUME /cache /config
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
-	echo ${TZ} > /etc/timezone && \
+    echo ${TZ} > /etc/timezone && \
     useradd -u ${PUID} -g ${PGID} -s /bin/bash jlf \
     && chown ${PUID}:${PGID} -R /jellyfin \
     && chown ${PUID}:${PGID} /cache \
