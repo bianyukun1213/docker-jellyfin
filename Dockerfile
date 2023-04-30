@@ -11,10 +11,7 @@ EXPOSE 8096
 VOLUME /cache /config /media
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo ${TZ} > /etc/timezone && \
-    useradd -u ${PUID} -g ${PGID} -s /bin/bash jlf \
-    && chown ${PUID}:${PGID} -R /jellyfin \
-    && chown ${PUID}:${PGID} /cache \
-    && chown ${PUID}:${PGID} /config \
-    && chown ${PUID}:${PGID} /media
+    groupadd -g 9981 jlf && \
+    useradd -u 9981 -g jlf -d /home/jlf -s /bin/bash jlf
 ADD /scripts/ /opt/scripts/
 ENTRYPOINT ["/opt/scripts/run.sh"]
