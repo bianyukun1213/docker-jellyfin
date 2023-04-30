@@ -1,4 +1,4 @@
-FROM nyanmisaka/jellyfin
+FROM nyanmisaka/jellyfin:latest
 ENV PUID=99 \
     PGID=100 \
     UMASK=000 \
