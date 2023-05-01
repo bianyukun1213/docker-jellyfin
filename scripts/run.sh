@@ -1,8 +1,11 @@
 #!/bin/bash
 groupmod -o -g "${PGID}" jlf
 usermod -u "${PUID}" jlf
-mkdir /home/jlf
-chown ${PUID}:${PGID} /home/jlf
+homedir="/home/jlf"
+if [ ! -d ${homedir} ]; then
+   mkdir -p ${homedir}
+fi
+chown ${PUID}:${PGID} ${homedir}
 chown ${PUID}:${PGID} -R /jellyfin
 chown ${PUID}:${PGID} /cache
 chown ${PUID}:${PGID} /config
