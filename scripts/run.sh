@@ -1,6 +1,6 @@
 #!/bin/bash
-groupmod -o -g "${PGID}" jlf
-usermod -u "${PUID}" jlf
+groupmod -o -g ${PGID} jlf
+usermod -u ${PUID} jlf
 homedir="/home/jlf"
 if [ ! -d ${homedir} ]; then
    mkdir -p ${homedir}
