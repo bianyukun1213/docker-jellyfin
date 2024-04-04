@@ -15,3 +15,4 @@ RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     useradd -u 9981 -g jlf -d /home/jlf -s /bin/bash jlf
 ADD /scripts/ /opt/scripts/
 ENTRYPOINT ["/opt/scripts/run.sh"]
+
